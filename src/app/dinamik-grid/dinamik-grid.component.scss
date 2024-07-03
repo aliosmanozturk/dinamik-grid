@@ -1,0 +1,65 @@
+.kaydirilabilir-alan {
+    width: 200px;
+    /* Kaydırma alanının genişliği */
+    height: 20px;
+    /* Kaydırma alanının yüksekliği */
+    overflow-x: auto;
+    /* Taşan içeriği otomatik olarak kaydır */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+  }
+  
+  .mat-header-cell.action,
+  .mat-cell.sabitSutun1 {
+    position: sticky;
+    top: 0;
+  
+    /* Sabit header'ın arka plan rengini isteğinize göre ayarlayabilirsiniz */
+    z-index: 1;
+  
+  
+  }
+  
+  td {
+    vertical-align: middle;
+  }
+  
+  .table__header-cell {
+    padding: 0 16px 0 16px;
+    width: 20px;
+  
+  }
+  
+  .mat-mdc-table {
+    text-wrap: nowrap !important;
+  }
+  
+  .table-responsive {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  
+    .mat-table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      display: table;
+      border-collapse: collapse;
+      margin: 0px;
+    }
+  
+  }
+  
+  .sticky {
+    position: sticky;
+    top: 0;
+    width: max-content; /* ya da istediğiniz bir değer */
+    z-index: 100;
+    
+  }
+  .mat-mdc-table .mdc-data-table__row {
+    height: 30px;
+  }
