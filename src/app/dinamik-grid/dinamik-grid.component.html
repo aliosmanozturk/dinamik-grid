@@ -122,7 +122,7 @@
 <mat-menu #columnMenu="matMenu">
     <div *ngFor="let column of columns">
         <mat-checkbox class="example-margin" *ngIf="column.name'action'" (click)="$event.stopPropagation()"
-            (change)="addColumn(column,$event.checked)" [checked]="column.show" [color]="'success'">
+            [checked]="column.show" [color]="'success'">
             {{column.title}}
         </mat-checkbox>
     </div>
