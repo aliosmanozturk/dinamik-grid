@@ -1,7 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+
 import { Column } from '../Column.model';
 import { ConfigModel } from '../ConfigModel.model';
 import { ColumnFilter } from '../ColumnFilter.model';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { SelectionModel } from '@angular/cdk/collections';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ExcellExportService } from '../excell-export.service';
 
 @Component({
   selector: 'app-dinamik-grid',
@@ -28,7 +34,7 @@ export class DinamikGridComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   public selection = new SelectionModel<any>(true, []);
-  constructor(private excell: ExcellExportService,private userColumnFilterService:DnmkUserColumnFilterService) { }
+  constructor(private excell: ExcellExportService) { }
   ngOnInit(): void {
     this.columns.forEach(p => {
       this.filters.push({ column: p.name, filterValue: "", operator: "" })
@@ -142,26 +148,7 @@ export class DinamikGridComponent implements OnInit {
   getType(value: any) {
     return typeof (value)
   }
-  addColumn(column: any, checked: boolean) {
-    console.log("Geldi")
-    const index = this.columns.indexOf(column);
-    this.columns[index].show = checked;
-    if(this.tableName){
-      const columnFilter:Dnmk_UserColumnFilter={
-        columnName:this.columns[index].name,
-        tableName:this.tableName,
-        createDate:new Date(),
-        createUserId:this.currentUserId,
-        id:0,
-        show:this.columns[index].show,
-        updateDate:null,
-        updateUserId:null
-      }
-      this.userColumnFilterService.Add(columnFilter).subscribe((res)=>{});
-    }
-   
-  }
-
+ 
   isUrlValid(url: string) {
     let _return = false;
     if (url && typeof (url) == "string" && url.startsWith("http")) {
