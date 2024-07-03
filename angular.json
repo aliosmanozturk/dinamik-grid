@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dinamik-grid:build:production"
+              "buildTarget": "dinamik-grid:build:production"
             },
             "development": {
-              "browserTarget": "dinamik-grid:build:development"
+              "buildTarget": "dinamik-grid:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dinamik-grid:build"
+            "buildTarget": "dinamik-grid:build"
           }
         },
         "test": {
